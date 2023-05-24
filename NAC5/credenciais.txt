@@ -1,0 +1,21 @@
+WA:
+API_key = scOq7fzfgPCCjp6bRGjkdZsk1rYGEMdfayHHvjyqIcSG
+URL = https://api.us-south.assistant.watson.cloud.ibm.com/instances/59f0b264-befb-4e8f-b4bb-b5e10c613cf9
+Assistant_ID = 3e0f2d47-bea5-4a6e-837b-1fce74897f67
+
+TTS:
+API_key = 1wj8PeJSqVtsTMJ5r_tU_cehVo9Yjf0w2KYwVUQvcfJ0
+URL = https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/09f0065e-ea5b-4e31-956a-bc409f302f47
+
+STT: 
+API_key = Oniv7w0Y6SBuFwUblMtX1jXFpxLp7HHuM7fTMPhq8bPB
+URL = https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/78fc7a28-566d-4660-9105-4ec70835b1b7
+
+Language Translator e Language Identifier:
+API_key = ZwJJdCRuxxupX6EZcZitoE7dMeI-_kFaKcIzlGrPmFYK
+URL = https://api.us-south.language-translator.watson.cloud.ibm.com/instances/d73597b4-e045-4a49-b637-0e0cb91e9174
+
+Cloudant:
+API_key: hDu91wMQXzq12mQxPoC77xSiKtdobKV3-N-GXmbbN0Yi
+URL/Endpoint: https://a780b546-d8f2-46bb-84aa-676ac694b7d2-bluemix.cloudant.com
+Database name: tel

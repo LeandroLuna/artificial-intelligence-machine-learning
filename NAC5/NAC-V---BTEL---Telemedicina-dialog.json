@@ -1,0 +1,802 @@
+{
+  "intents": [
+    {
+      "intent": "Agente",
+      "examples": [
+        {
+          "text": "Contato"
+        },
+        {
+          "text": "Falar com humano"
+        },
+        {
+          "text": "Gostaria de falar com um agente"
+        },
+        {
+          "text": "Me ajude!"
+        },
+        {
+          "text": "Queria falar com um representante"
+        }
+      ],
+      "description": "Informa os meios de contatos com um representante real."
+    },
+    {
+      "intent": "Apresentação",
+      "examples": [
+        {
+          "text": "Boa noite"
+        },
+        {
+          "text": "Boa tarde"
+        },
+        {
+          "text": "Bom dia"
+        },
+        {
+          "text": "Chatbot"
+        },
+        {
+          "text": "Oi"
+        },
+        {
+          "text": "Olá"
+        },
+        {
+          "text": "Quem é você?"
+        }
+      ],
+      "description": "Introduz informações sobre o chatbot."
+    },
+    {
+      "intent": "Cadastro",
+      "examples": [
+        {
+          "text": "Efetuar registro"
+        },
+        {
+          "text": "Gostaria de me juntar a vocês"
+        },
+        {
+          "text": "Me alistar"
+        },
+        {
+          "text": "Quero fazer minha inscrição"
+        },
+        {
+          "text": "Quero me registrar"
+        },
+        {
+          "text": "Realizar cadastro"
+        }
+      ],
+      "description": "Registra as informações do usuário/paciente."
+    },
+    {
+      "intent": "Exames",
+      "examples": [
+        {
+          "text": "Exames"
+        },
+        {
+          "text": "Lista de exames disponiveis"
+        },
+        {
+          "text": "Quais exames eu posso fazer?"
+        },
+        {
+          "text": "Quais exames vocês oferecem?"
+        },
+        {
+          "text": "Tipos de exames"
+        }
+      ],
+      "description": "Informa a lista de exames disponíveis. "
+    },
+    {
+      "intent": "Localizacao",
+      "examples": [
+        {
+          "text": "A onde vocês estão localizados?"
+        },
+        {
+          "text": "Como posso fazer uma visita presencialmente"
+        },
+        {
+          "text": "Gostaria de visitá-los"
+        },
+        {
+          "text": "Onde vocês estão situados?"
+        },
+        {
+          "text": "Qual o endereço de vocês"
+        }
+      ],
+      "description": "Informa ao paciente o endereço da unidade de atendimento presencial."
+    },
+    {
+      "intent": "Medicos",
+      "examples": [
+        {
+          "text": "Médicos"
+        },
+        {
+          "text": "Me informe uma relação da lista de médicos"
+        },
+        {
+          "text": "Quais especialistas eu posso contar?"
+        },
+        {
+          "text": "Qual a equipe médica de vocês?"
+        },
+        {
+          "text": "Qual o time de especialistas?"
+        }
+      ],
+      "description": "Cria uma relação da lista de médicos."
+    },
+    {
+      "intent": "Tratamentos",
+      "examples": [
+        {
+          "text": "Eu gostaria de um tratamento"
+        },
+        {
+          "text": "Me informe os processos disponíveis"
+        },
+        {
+          "text": "Quais os procedimentos que eu posso fazer?"
+        },
+        {
+          "text": "Quais tratamentos vocês oferecem?"
+        },
+        {
+          "text": "Tratamento"
+        }
+      ],
+      "description": "Informa os tratamentos disponíveis."
+    }
+  ],
+  "entities": [
+    {
+      "entity": "address",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "cep",
+          "patterns": [
+            "[0-9]{5}-[0-9]{3}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "celular",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "celular",
+          "patterns": [
+            "(\\d{2}) (\\d{5}-\\d{4})"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "cpf",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "cpf",
+          "patterns": [
+            "([0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "email",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "email",
+          "patterns": [
+            "\\b[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,}\\b"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "nome-sobrenome",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "name-surname",
+          "patterns": [
+            "(.*?)"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sim-nao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Não",
+          "synonyms": [
+            "De jeito nenhum",
+            "De maneira alguma",
+            "De modo algum",
+            "Em circustância alguma",
+            "Em nenhum momento",
+            "Jamais",
+            "Nada",
+            "Negativo",
+            "Nope",
+            "Nunca"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Sim",
+          "synonyms": [
+            "Afirmativo",
+            "Aham",
+            "Certo",
+            "Com certeza",
+            "De acordo",
+            "Jaé",
+            "Ok",
+            "Pode pá",
+            "Positivo",
+            "Tá bom",
+            "Uhum"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá! Sou o chatbot ETEL. Como posso te ajudar?"
+              },
+              {
+                "text": "Olá! Sou o ETEL, um chatbot informativo de telemedicina. Como posso te ajudar hoje?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Apresentação",
+      "digress_in": "does_not_return",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_10_1665109178741",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Agora poderia me informar o seu CEP, por gentileza? Padrão: 12345-123"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_5_1665105885983",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1665105885984",
+      "previous_sibling": "handler_6_1665105885984"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1665108942297",
+      "context": {
+        "cpf": "@cpf.literal"
+      },
+      "conditions": "@cpf",
+      "event_name": "input",
+      "dialog_node": "handler_2_1665108942299"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Me informe seu CPF? O padrão aceito é: 123.123.123-12"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_8_1665108942297",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1665108942299",
+      "previous_sibling": "handler_2_1665108942299"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1665146358570",
+      "context": {
+        "nome_sobrenome": "\"<? input.text ?>\""
+      },
+      "conditions": "\"<? input.text ?>\"",
+      "event_name": "input",
+      "dialog_node": "handler_3_1665146358581"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Poderia informar seu email, por favor?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_8_1665105566230",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1665105566231",
+      "previous_sibling": "handler_9_1665105566231"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Precisaremos também de algumas outras informações: "
+              }
+            ],
+            "response_type": "text"
+          }
+        ]
+      },
+      "parent": "node_2_1665021200536",
+      "conditions": "$nome_sobrenome",
+      "event_name": "generic",
+      "dialog_node": "handler_5_1665153558212"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_5_1665105885983",
+      "context": {
+        "cep": "@address.literal"
+      },
+      "conditions": "@address",
+      "event_name": "input",
+      "dialog_node": "handler_6_1665105885984"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_5_1665105957410",
+      "context": {
+        "celular": "@celular.literal"
+      },
+      "conditions": "@celular",
+      "event_name": "input",
+      "dialog_node": "handler_8_1665105957411"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1665105566230",
+      "context": {
+        "email": "@email.literal"
+      },
+      "conditions": "@email",
+      "event_name": "input",
+      "dialog_node": "handler_9_1665105566231"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "E para finalizarmos, seu telefone celular também, por favor. Padrão: 12 91234-1234"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_5_1665105957410",
+      "event_name": "focus",
+      "dialog_node": "handler_9_1665105957411",
+      "previous_sibling": "handler_8_1665105957411"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1665146358570",
+      "event_name": "focus",
+      "dialog_node": "handler_9_1665146358581",
+      "previous_sibling": "handler_3_1665146358581"
+    },
+    {
+      "type": "standard",
+      "title": "Mensagem inicial. [Utilizado somente no WA]",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "NAC V de Inteligência Artificial (2022). "
+              },
+              {
+                "text": "Nome: Leandro De Jesus Luna | RM: 86492 | Turma: 3ECA"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "node_10_1665109178741",
+      "previous_sibling": "node_3_1665021224214"
+    },
+    {
+      "type": "frame",
+      "title": "Registra nome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Obrigado, $nome_sobrenome! "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1665108328628",
+      "context": {},
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "true",
+      "dialog_node": "node_1_1665108443842"
+    },
+    {
+      "type": "frame",
+      "title": "Informações adicionais",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Legal! Já realizamos seu cadastro. Espero que aproveite nosso serviço!"
+              },
+              {
+                "text": "Obrigado por se cadastrar conosco!"
+              },
+              {
+                "text": "Fique ciente! Suas informações armazenadas foram:  Seu nome é '$nome_sobrenome' e seu endereço é no CEP '$cep'. Já seus meios de contato são: email '$email' e seu número de celular é '$celular'. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1665108443842",
+      "conditions": "true && $nome_sobrenome",
+      "dialog_node": "node_2_1665021200536",
+      "previous_sibling": "slot_2_1665146358570"
+    },
+    {
+      "type": "standard",
+      "title": "Endereço/Localização",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Que legal que você quer nos visitar! Estamos localizados na \"Avenida dos Perdidos\", número 123, centro de São Paulo. Estamos te aguardando!"
+              },
+              {
+                "text": "Estamos localizados na \"Avenida dos Perdidos\", número 123, bairro dos \"Ninguém\", centro de São Paulo. Venha nos visitar!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Localizacao",
+      "dialog_node": "node_2_1665021200799",
+      "previous_sibling": "node_5_1665021199378"
+    },
+    {
+      "type": "standard",
+      "title": "Falar com representante",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Poxa, que pena que não pude te ajudar! Para falar com um representante, envie um e-mail para 'etelhosp@corporate.com.br' ou ligue (11) 3456-9866. "
+              },
+              {
+                "text": "Para falar com um representante, envie um e-mail para 'etelhosp@corporate.com.br' ou ligue (11) 3456-9866. Se preferir, também entre em contato pelo WhatsApp: (11) 94321-6789."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Agente",
+      "dialog_node": "node_3_1665021224214",
+      "previous_sibling": "node_8_1665021223715"
+    },
+    {
+      "type": "standard",
+      "title": "Previamente cadastrado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Você já se cadastrou previamente! "
+              },
+              {
+                "text": "Seu nome é '$nome_sobrenome' e seu endereço é no CEP '$cep'. Já seus meios de contato são: email '$email' e seu número de celular é '$celular'. "
+              },
+              {
+                "text": "Para realizar um novo cadastro, inicie uma nova sessão no Telegram. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#Cadastro",
+      "dialog_node": "node_3_1665154235852",
+      "previous_sibling": "node_7_1665108328628"
+    },
+    {
+      "type": "standard",
+      "title": "Relação de exames",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Aqui no hospital realizamos os seguintes exames: Hemograma, Colesterol, Ureia, Creatinina, entre muitos outros! Informe novamente frases relacionadas a  'exame' para listar o restante dos exames.  "
+              },
+              {
+                "text": "Além dos exames listados anteriormente, também oferecemos exames de: Colesterol total e Triglicerídeos, PCR, TSH, Urina, Gravidez e Plaquetas."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Exames",
+      "dialog_node": "node_5_1665021199378",
+      "previous_sibling": "node_3_1665154235852"
+    },
+    {
+      "type": "standard",
+      "title": "Cadastro",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Vamos realizar seu cadastro em nosso sistema."
+              },
+              {
+                "text": "Observação: é preferível que esse cadastro seja feito por texto."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "values": [
+              {
+                "text": "Qual seu nome completo?"
+              },
+              {
+                "text": "Me informe seu nome completo."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Cadastro && !$nome_sobrenome",
+      "dialog_node": "node_7_1665108328628",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Relação de tratamentos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Realizamos uma série de tratamentos paliativos, tais como o nosso tratamento reconhecido internacionalmente de câncer (mama, próstata, intestino etc.)! Para saber mais, fale frases relacionadas a 'tratamento'."
+              },
+              {
+                "text": "Temos também vários outros tratamentos, sendo esses: Quiropraxia, Lidocaína, Diabetes, Hemodiálise, Parkinson e Alzheimer!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Tratamentos",
+      "dialog_node": "node_8_1665021223715",
+      "previous_sibling": "node_9_1665021223227"
+    },
+    {
+      "type": "standard",
+      "title": "Relação de médicos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Contamos com um super time de médicos e especialistas, com a ilustre honra de ter o Dr. e professor Henrique Ferreira! Além dele, também contamos com o Dr. Drauzio Varella, o médico do esporte Dr. Paulo Muzzy e a cirurgiã Angelita Habr-Gama! Para saber mais da nossa equipe, envie uma nova mensagem com um termo relacionado à 'médicos'."
+              },
+              {
+                "text": "Para além dos médicos previamente listados, também contamos com o cardiologista José Antônio Ramires, o oncologista Paulo Hoff, o oftalmologista Rubens Belfort e o clinico geral Antonio Carlos Lopes!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Medicos",
+      "dialog_node": "node_9_1665021223227",
+      "previous_sibling": "node_2_1665021200799"
+    },
+    {
+      "type": "slot",
+      "parent": "node_1_1665108443842",
+      "variable": "$nome_sobrenome",
+      "dialog_node": "slot_2_1665146358570"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_2_1665021200536",
+      "variable": "$cep",
+      "dialog_node": "slot_5_1665105885983",
+      "previous_sibling": "slot_8_1665105566230"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_2_1665021200536",
+      "variable": "$celular",
+      "dialog_node": "slot_5_1665105957410",
+      "previous_sibling": "slot_5_1665105885983"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_2_1665021200536",
+      "variable": "$email",
+      "dialog_node": "slot_8_1665105566230",
+      "previous_sibling": "slot_8_1665108942297"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_2_1665021200536",
+      "variable": "$cpf",
+      "dialog_node": "slot_8_1665108942297",
+      "previous_sibling": "handler_5_1665153558212"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "(11) 93086-2342"
+    },
+    {
+      "text": "123.123.123-55"
+    }
+  ],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "NAC V - BTEL - Telemedicina",
+  "language": "pt-br",
+  "description": ""
+}
